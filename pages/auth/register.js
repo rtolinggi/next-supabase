@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Input, Label } from "../../components/atom";
+import { Button, Input, Label, Divider } from "../../components/atom";
 import { Box, Container } from "../../components/Register";
 
 const Register = () => {
   const emailRef = React.useRef(null);
   const passwordRef = React.useRef(null);
+  const passwordConfirmRef = React.useRef(null);
   const handleForm = (e) => {
     e.preventDefault();
     console.log(emailRef.current.value);
@@ -12,20 +13,36 @@ const Register = () => {
   };
   return (
     <Container>
-      <h1>Register Page</h1>
       <Box margin='1rem'>
+        <Divider />
         <form onSubmit={handleForm}>
-          <Label>Email Address</Label>
-          <Input placeholder='Email' mb='1rem' type='text' ref={emailRef} />
-          <Label>Password</Label>
+          <Label htmlFor='email'>Email Address</Label>
           <Input
+            id='email'
+            placeholder='email'
+            mb='1rem'
+            type='text'
+            ref={emailRef}
+          />
+          <Label htmlFor='password'>Password</Label>
+          <Input
+            id='password'
             mb='1.2rem'
             placeholder='password'
             type='password'
             ref={passwordRef}
           />
-          <Button type='submit'>Signup</Button>
+          <Label htmlFor='passwordConfirmation'>Password Confirmation</Label>
+          <Input
+            id='passwordConfirmation'
+            mb='1.2rem'
+            placeholder='password confirmation'
+            type='password'
+            ref={passwordConfirmRef}
+          />
+          <Button type='submit'>Register</Button>
         </form>
+        <Divider />
       </Box>
     </Container>
   );
