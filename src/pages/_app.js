@@ -1,6 +1,6 @@
 import "../styles/globalStyles.css";
-import theme from "../styles/theme.js";
 import { ThemeProvider } from "styled-components";
+import theme from "../styles/theme";
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
